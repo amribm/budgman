@@ -1,0 +1,8 @@
+[package]
+name = "budgman"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+console = "0.15.8"
+rusqlite = "0.32.1"
