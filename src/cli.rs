@@ -1,11 +1,17 @@
-use clap::Command;
+use clap::{builder::ValueParser, value_parser, Arg, Command};
 
 pub fn command() -> Command {
     Command::new("budgman")
         .about("budget manager for u :)")
         .subcommand(
             Command::new("budget")
-                .subcommand(Command::new("ls").about("lists  budgets"))
+                .subcommand(
+                    Command::new("ls")
+                        .about("lists  budgets")
+                        .arg(Arg::new("name"))
+                        .arg(Arg::new("amount").value_parser(value_parser!(u64)))
+                        .arg(Arg::new("time").help("date in dd/mm/yyyy")),
+                )
                 .subcommand(Command::new("new").about("create new budget"))
                 .subcommand(Command::new("edit").about("edit budget"))
                 .subcommand(Command::new("rm").about("delete budget")),

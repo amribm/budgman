@@ -2,8 +2,6 @@ mod budgman;
 mod cli;
 mod sql;
 
-use std::process::exit;
-
 use budgman::{BudgMan, BudgManError};
 
 fn main() -> Result<(), BudgManError> {
@@ -33,8 +31,7 @@ fn main() -> Result<(), BudgManError> {
             _ => println!("unknown subcommand"),
         },
         _ => {
-            println!("unknown subcommand");
-            exit(1)
+            bman.budget_stats()?;
         }
     }
     Ok(())

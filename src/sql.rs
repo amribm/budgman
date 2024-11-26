@@ -15,7 +15,7 @@ impl DB {
 
     pub fn init(&self) -> Result<()> {
         let create_budget_table = "
-            CREATE TABLE IF NOT EXISTS budget (
+            CREATE TABLE IF NOT EXISTS `budget` (
                 id INTEGER PRIMARY KEY,
                 name TEXT NOT NULL,
                 amount INTEGER NOT NULL DEFAULT 0
@@ -403,24 +403,24 @@ impl DB {
     }
 }
 
-struct Budget {
-    name: String,
-    id: u32,
-    amount: u64,
+pub struct Budget {
+    pub name: String,
+    pub id: u32,
+    pub amount: u64,
 }
 
-struct Expense {
-    id: u32,
-    name: String,
-    time: DateTime<Local>,
-    budget_id: u32,
-    amount: u64,
+pub struct Expense {
+    pub id: u32,
+    pub name: String,
+    pub time: DateTime<Local>,
+    pub budget_id: u32,
+    pub amount: u64,
 }
 
-struct Income {
-    id: u32,
-    name: String,
-    time: DateTime<Local>,
-    budget_id: u32,
-    amount: u64,
+pub struct Income {
+    pub id: u32,
+    pub name: String,
+    pub time: DateTime<Local>,
+    pub budget_id: u32,
+    pub amount: u64,
 }
